@@ -21,6 +21,10 @@ for key in Split('CC CXX AR RANLIB LD NM CFLAGS CCFLAGS'):
   value = os.environ.get(key)
   if value != None:
     env[key] = Split(value)
+# Fix issue with scons not passing some vars through the environment.
+for key in Split('SYSROOT'):
+  if os.environ.has_key(key):
+    env['ENV'][key] = os.environ[key]
 env.Append(BUILDERS={"MkStub": mk_stub_builder},
            CCFLAGS=["-Iinclude", "-Wall"])
 
