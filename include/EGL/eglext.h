@@ -34,8 +34,8 @@ extern "C" {
 
 /* Header file version number */
 /* Current version at http://www.khronos.org/registry/egl/ */
-/* $Revision: 20690 $ on $Date: 2013-02-22 17:15:05 -0800 (Fri, 22 Feb 2013) $ */
-#define EGL_EGLEXT_VERSION 15
+/* $Revision: 21254 $ on $Date: 2013-04-25 03:11:55 -0700 (Thu, 25 Apr 2013) $ */
+#define EGL_EGLEXT_VERSION 16
 
 #ifndef EGL_KHR_config_attribs
 #define EGL_KHR_config_attribs 1
@@ -557,6 +557,20 @@ typedef EGLint (EGLAPIENTRYP PFNEGLDUPNATIVEFENCEFDANDROIDPROC)(EGLDisplay dpy, 
 #define EGL_YUV_CHROMA_SITING_0_EXT		0x3284
 #define EGL_YUV_CHROMA_SITING_0_5_EXT		0x3285
 #endif
+
+#ifndef EGL_ARM_pixmap_multisample_discard
+#define EGL_ARM_pixmap_multisample_discard 1
+#define EGL_DISCARD_SAMPLES_ARM			0x3286
+#endif
+
+#ifndef EGL_EXT_swap_buffers_with_damage
+#define EGL_EXT_swap_buffers_with_damage 1
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersWithDamageEXT( EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif /* EGL_EGLEXT_PROTOTYPES */
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC)(EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif
+
 
 #ifdef __cplusplus
 }
