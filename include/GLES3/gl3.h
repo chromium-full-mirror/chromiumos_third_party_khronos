@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013 The Khronos Group Inc.
+** Copyright (c) 2013-2014 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,17 +33,17 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 24614 $ on $Date: 2013-12-30 04:44:46 -0800 (Mon, 30 Dec 2013) $
+** Khronos $Revision: 28335 $ on $Date: 2014-09-26 18:55:45 -0700 (Fri, 26 Sep 2014) $
 */
 
 #include <GLES3/gl3platform.h>
 
-/* Generated on date 20131230 */
+/* Generated on date 20140926 */
 
 /* Generated C header for:
  * API: gles2
  * Profile: common
- * Versions considered: [23]\.[0-9]
+ * Versions considered: 2\.[0-9]|3.0
  * Versions emitted: .*
  * Default extensions included: None
  * Additional extensions included: _nomatch_^
@@ -826,7 +826,7 @@ typedef unsigned short GLhalf;
 #define GL_MAX_ELEMENT_INDEX              0x8D6B
 #define GL_NUM_SAMPLE_COUNTS              0x9380
 #define GL_TEXTURE_IMMUTABLE_LEVELS       0x82DF
-GL_APICALL void GL_APIENTRY glReadBuffer (GLenum mode);
+GL_APICALL void GL_APIENTRY glReadBuffer (GLenum src);
 GL_APICALL void GL_APIENTRY glDrawRangeElements (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices);
 GL_APICALL void GL_APIENTRY glTexImage3D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const void *pixels);
 GL_APICALL void GL_APIENTRY glTexSubImage3D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *pixels);
