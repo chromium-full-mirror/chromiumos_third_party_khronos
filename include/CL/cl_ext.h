@@ -64,7 +64,7 @@ extern "C" {
  * before using.
  */
 #define cl_APPLE_SetMemObjectDestructor 1
-cl_int  CL_API_ENTRY clSetMemObjectDestructorAPPLE(  cl_mem /* memobj */, 
+cl_int  CL_API_ENTRY clSetMemObjectDestructorAPPLE(  cl_mem /* memobj */,
                                         void (* /*pfn_notify*/)( cl_mem /* memobj */, void* /*user_data*/), 
                                         void * /*user_data */ )             CL_EXT_SUFFIX__VERSION_1_0;  
 
@@ -134,6 +134,12 @@ typedef CL_API_ENTRY cl_int (CL_API_CALL *clIcdGetPlatformIDsKHR_fn)(
 * cl_amd_device_attribute_query *
 *********************************/
 #define CL_DEVICE_PROFILING_TIMER_OFFSET_AMD        0x4036
+
+/*********************************
+* cl_arm_printf extension
+*********************************/
+#define CL_PRINTF_CALLBACK_ARM                      0x40B0
+#define CL_PRINTF_BUFFERSIZE_ARM                    0x40B1
 
 #ifdef CL_VERSION_1_1
    /***********************************
@@ -205,7 +211,7 @@ typedef CL_API_ENTRY cl_int (CL_API_CALL *clIcdGetPlatformIDsKHR_fn)(
 
 #define CL_MEM_EXT_HOST_PTR_QCOM                  (1 << 29)
 
-#define CL_DEVICE_EXT_MEM_PADDING_IN_BYTES_QCOM   0x40A0      
+#define CL_DEVICE_EXT_MEM_PADDING_IN_BYTES_QCOM   0x40A0
 #define CL_DEVICE_PAGE_SIZE_QCOM                  0x40A1
 #define CL_IMAGE_ROW_ALIGNMENT_QCOM               0x40A2
 #define CL_IMAGE_SLICE_ALIGNMENT_QCOM             0x40A3
@@ -228,11 +234,11 @@ clGetDeviceImageInfoQCOM(cl_device_id             device,
 
 typedef struct _cl_mem_ext_host_ptr
 {
-    // Type of external memory allocation.
-    // Legal values will be defined in layered extensions.
+    /* Type of external memory allocation. */
+    /* Legal values will be defined in layered extensions. */
     cl_uint  allocation_type;
-            
-    // Host cache policy for this external memory allocation.
+
+    /* Host cache policy for this external memory allocation. */
     cl_uint  host_cache_policy;
 
 } cl_mem_ext_host_ptr;
@@ -245,14 +251,14 @@ typedef struct _cl_mem_ext_host_ptr
 
 typedef struct _cl_mem_ion_host_ptr
 {
-    // Type of external memory allocation.
-    // Must be CL_MEM_ION_HOST_PTR_QCOM for ION allocations.
+    /* Type of external memory allocation. */
+    /* Must be CL_MEM_ION_HOST_PTR_QCOM for ION allocations. */
     cl_mem_ext_host_ptr  ext_host_ptr;
 
-    // ION file descriptor
+    /* ION file descriptor */
     int                  ion_filedesc;
-            
-    // Host pointer to the ION allocated memory
+
+    /* Host pointer to the ION allocated memory */
     void*                ion_hostptr;
 
 } cl_mem_ion_host_ptr;

@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27930 $ on $Date: 2014-09-03 21:17:58 -0700 (Wed, 03 Sep 2014) $
+** Khronos $Revision: 29318 $ on $Date: 2015-01-02 03:16:10 -0800 (Fri, 02 Jan 2015) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140903
+#define EGL_EGLEXT_VERSION 20150102
 
 /* Generated C header for:
  * API: egl
@@ -207,6 +207,15 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurface64KHR (EGLDisplay dpy, EGLSurface s
 #endif
 #endif /* EGL_KHR_lock_surface3 */
 
+#ifndef EGL_KHR_partial_update
+#define EGL_KHR_partial_update 1
+#define EGL_BUFFER_AGE_KHR                0x313D
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSETDAMAGEREGIONKHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSetDamageRegionKHR (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif
+#endif /* EGL_KHR_partial_update */
+
 #ifndef EGL_KHR_platform_android
 #define EGL_KHR_platform_android 1
 #define EGL_PLATFORM_ANDROID_KHR          0x3141
@@ -354,6 +363,14 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateStreamProducerSurfaceKHR (EGLDisplay dpy,
 #define EGL_KHR_surfaceless_context 1
 #endif /* EGL_KHR_surfaceless_context */
 
+#ifndef EGL_KHR_swap_buffers_with_damage
+#define EGL_KHR_swap_buffers_with_damage 1
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSWAPBUFFERSWITHDAMAGEKHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersWithDamageKHR (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif
+#endif /* EGL_KHR_swap_buffers_with_damage */
+
 #ifndef EGL_KHR_vg_parent_image
 #define EGL_KHR_vg_parent_image 1
 #define EGL_VG_PARENT_IMAGE_KHR           0x30BA
@@ -421,6 +438,11 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurfacePointerANGLE (EGLDisplay dpy, EGLSu
 #ifndef EGL_ANGLE_surface_d3d_texture_2d_share_handle
 #define EGL_ANGLE_surface_d3d_texture_2d_share_handle 1
 #endif /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
+
+#ifndef EGL_ANGLE_window_fixed_size
+#define EGL_ANGLE_window_fixed_size 1
+#define EGL_FIXED_SIZE_ANGLE              0x3201
+#endif /* EGL_ANGLE_window_fixed_size */
 
 #ifndef EGL_ARM_pixmap_multisample_discard
 #define EGL_ARM_pixmap_multisample_discard 1
