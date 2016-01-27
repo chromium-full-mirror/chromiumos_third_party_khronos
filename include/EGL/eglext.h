@@ -824,6 +824,17 @@ EGLAPI EGLuint64NV EGLAPIENTRY eglGetSystemTimeNV (void);
 #define EGL_SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM 0x328A
 #endif /* EGL_ARM_implicit_external_sync */
 
+#ifndef EGL_image_flush_external
+#define EGL_image_flush_external 1
+#define EGL_IMAGE_EXTERNAL_FLUSH_EXT 0x32A2
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLIMAGEFLUSHEXTERNALEXTPROC) (EGLDisplay dpy, EGLImageKHR image, const EGLAttrib *attrib_list);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLIMAGEINVALIDATEEXTERNALEXTPROC) (EGLDisplay dpy, EGLImageKHR image, const EGLAttrib *attrib_list);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglImageFlushExternalEXT (EGLDisplay dpy, EGLImageKHR image, const EGLAttrib *attrib_list);
+EGLAPI EGLBoolean EGLAPIENTRY eglImageInvalidateExternalEXT (EGLDisplay dpy, EGLImageKHR image, const EGLAttrib *attrib_list);
+#endif
+#endif /* EGL_image_flush_external */
+
 #ifdef __cplusplus
 }
 #endif
