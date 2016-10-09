@@ -520,21 +520,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQueryDisplayAttribEXT (EGLDisplay dpy, EGLint a
 #define EGL_YUV_CHROMA_SITING_0_5_EXT     0x3285
 #endif /* EGL_EXT_image_dma_buf_import */
 
-#ifndef EGL_EXT_image_dma_buf_import_modifiers
-#define EGL_EXT_image_dma_buf_import_modifiers
-#define EGL_DMA_BUF_PLANE0_MODIFIER_LO_EXT 0x3443
-#define EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT 0x3444
-#define EGL_DMA_BUF_PLANE1_MODIFIER_LO_EXT 0x3445
-#define EGL_DMA_BUF_PLANE1_MODIFIER_HI_EXT 0x3446
-#define EGL_DMA_BUF_PLANE2_MODIFIER_LO_EXT 0x3447
-#define EGL_DMA_BUF_PLANE2_MODIFIER_HI_EXT 0x3448
-#define EGL_DMA_BUF_PLANE3_FD_EXT          0x3440
-#define EGL_DMA_BUF_PLANE3_OFFSET_EXT      0x3441
-#define EGL_DMA_BUF_PLANE3_PITCH_EXT       0x3442
-#define EGL_DMA_BUF_PLANE3_MODIFIER_LO_EXT 0x3449
-#define EGL_DMA_BUF_PLANE3_MODIFIER_HI_EXT 0x344A
-#endif /* EGL_EXT_image_dma_buf_import_modifiers */
-
 #ifndef EGL_EXT_multiview_window
 #define EGL_EXT_multiview_window 1
 #define EGL_MULTIVIEW_VIEW_COUNT_EXT      0x3134
