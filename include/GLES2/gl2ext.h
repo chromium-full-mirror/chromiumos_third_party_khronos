@@ -1,12 +1,12 @@
-#ifndef __gl2ext_h_
-#define __gl2ext_h_ 1
+#ifndef __gles2_gl2ext_h_
+#define __gles2_gl2ext_h_ 1
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013-2017 The Khronos Group Inc.
+** Copyright (c) 2013-2018 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -38,7 +38,7 @@ extern "C" {
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20180213 */
+/* Generated on date 20180725 */
 
 /* Generated C header for:
  * API: gles2
@@ -801,6 +801,22 @@ GL_APICALL void GL_APIENTRY glGetFloati_vOES (GLenum target, GLuint index, GLflo
 #define GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD 0x87EE
 #endif /* GL_AMD_compressed_ATC_texture */
 
+#ifndef GL_AMD_framebuffer_multisample_advanced
+#define GL_AMD_framebuffer_multisample_advanced 1
+#define GL_RENDERBUFFER_STORAGE_SAMPLES_AMD 0x91B2
+#define GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD 0x91B3
+#define GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD 0x91B4
+#define GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD 0x91B5
+#define GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD 0x91B6
+#define GL_SUPPORTED_MULTISAMPLE_MODES_AMD 0x91B7
+typedef void (GL_APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) (GLenum target, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
+typedef void (GL_APIENTRYP PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) (GLuint renderbuffer, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glRenderbufferStorageMultisampleAdvancedAMD (GLenum target, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
+GL_APICALL void GL_APIENTRY glNamedRenderbufferStorageMultisampleAdvancedAMD (GLuint renderbuffer, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
+#endif
+#endif /* GL_AMD_framebuffer_multisample_advanced */
+
 #ifndef GL_AMD_performance_monitor
 #define GL_AMD_performance_monitor 1
 #define GL_COUNTER_TYPE_AMD               0x8BC0
@@ -1064,6 +1080,16 @@ GL_APICALL void GL_APIENTRY glGetSyncivAPPLE (GLsync sync, GLenum pname, GLsizei
 #ifndef GL_EXT_EGL_image_array
 #define GL_EXT_EGL_image_array 1
 #endif /* GL_EXT_EGL_image_array */
+
+#ifndef GL_EXT_EGL_image_storage
+#define GL_EXT_EGL_image_storage 1
+typedef void (GL_APIENTRYP PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC) (GLenum target, GLeglImageOES image, const GLint* attrib_list);
+typedef void (GL_APIENTRYP PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) (GLuint texture, GLeglImageOES image, const GLint* attrib_list);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glEGLImageTargetTexStorageEXT (GLenum target, GLeglImageOES image, const GLint* attrib_list);
+GL_APICALL void GL_APIENTRY glEGLImageTargetTextureStorageEXT (GLuint texture, GLeglImageOES image, const GLint* attrib_list);
+#endif
+#endif /* GL_EXT_EGL_image_storage */
 
 #ifndef GL_EXT_YUV_target
 #define GL_EXT_YUV_target 1
@@ -1849,6 +1875,14 @@ GL_APICALL void GL_APIENTRY glProgramUniformMatrix4x3fvEXT (GLuint program, GLin
 #define GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT 0x8A52
 #endif /* GL_EXT_shader_framebuffer_fetch */
 
+#ifndef GL_EXT_shader_framebuffer_fetch_non_coherent
+#define GL_EXT_shader_framebuffer_fetch_non_coherent 1
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferFetchBarrierEXT (void);
+#endif
+#endif /* GL_EXT_shader_framebuffer_fetch_non_coherent */
+
 #ifndef GL_EXT_shader_group_vote
 #define GL_EXT_shader_group_vote 1
 #endif /* GL_EXT_shader_group_vote */
@@ -2101,6 +2135,11 @@ GL_APICALL void GL_APIENTRY glTexBufferRangeEXT (GLenum target, GLenum internalf
 #define GL_EXT_texture_format_BGRA8888 1
 #endif /* GL_EXT_texture_format_BGRA8888 */
 
+#ifndef GL_EXT_texture_format_sRGB_override
+#define GL_EXT_texture_format_sRGB_override 1
+#define GL_TEXTURE_FORMAT_SRGB_OVERRIDE_EXT 0x8FBF
+#endif /* GL_EXT_texture_format_sRGB_override */
+
 #ifndef GL_EXT_texture_mirror_clamp_to_edge
 #define GL_EXT_texture_mirror_clamp_to_edge 1
 #define GL_MIRROR_CLAMP_TO_EDGE_EXT       0x8743
@@ -2308,6 +2347,11 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture2DMultisampleIMG (GLenum target,
 #define GL_CUBIC_MIPMAP_LINEAR_IMG        0x913B
 #endif /* GL_IMG_texture_filter_cubic */
 
+#ifndef GL_INTEL_blackhole_render
+#define GL_INTEL_blackhole_render 1
+#define GL_BLACKHOLE_RENDER_INTEL         0x83FC
+#endif /* GL_INTEL_blackhole_render */
+
 #ifndef GL_INTEL_conservative_rasterization
 #define GL_INTEL_conservative_rasterization 1
 #define GL_CONSERVATIVE_RASTERIZATION_INTEL 0x83FE
@@ -2366,6 +2410,11 @@ GL_APICALL void GL_APIENTRY glGetPerfQueryIdByNameINTEL (GLchar *queryName, GLui
 GL_APICALL void GL_APIENTRY glGetPerfQueryInfoINTEL (GLuint queryId, GLuint queryNameLength, GLchar *queryName, GLuint *dataSize, GLuint *noCounters, GLuint *noInstances, GLuint *capsMask);
 #endif
 #endif /* GL_INTEL_performance_query */
+
+#ifndef GL_MESA_framebuffer_flip_y
+#define GL_MESA_framebuffer_flip_y 1
+#define GL_FRAMEBUFFER_FLIP_Y_MESA        0x8BBB
+#endif /* GL_MESA_framebuffer_flip_y */
 
 #ifndef GL_MESA_program_binary_formats
 #define GL_MESA_program_binary_formats 1
